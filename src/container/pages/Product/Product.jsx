@@ -2,17 +2,9 @@ import React, {Component, Fragment} from 'react';
 import './Product.css';
 import CardProduct from "./CardProduct/CardProduct";
 import {connect} from 'react-redux';
+import {GlobalConsumer} from "../../../context/context";
 
 class Product extends Component{
-    /*state = {
-        order: 4
-    };
-    handleCounterChange = (newValue) => {
-        this.setState({
-           order: newValue
-        });
-    };*/
-
     componentDidMount() {
         document.title = 'Product';
     }
@@ -27,7 +19,7 @@ class Product extends Component{
                     </div>
                     <div className="trolley">
                         <img src="https://etanee.id/img/icon/ic_cart_white.svg" alt="" />
-                        <div className="count">{this.props.order}</div>
+                        <div className="count">{this.props.state.totalOrder}</div>
                     </div>
                 </div>
                <CardProduct/>
@@ -36,10 +28,4 @@ class Product extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        order: state.totalOrder
-    };
-};
-
-export default connect(mapStateToProps)(Product);
+export default GlobalConsumer(Product);

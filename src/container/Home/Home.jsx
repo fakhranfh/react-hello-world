@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component, Fragment, createContext} from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import Product from '../pages/Product/Product';
 import LifeCycleComp from "../pages/LifeCycleComp/LifeCycleComp";
@@ -6,12 +6,9 @@ import BlogPost from "../pages/BlogPost/BlogPost";
 import YoutubeCompPage from "../pages/YoutubeCompPage/YoutubeCompPage";
 import DetailPost from "../pages/BlogPost/DetailPost/DetailPost";
 import './Home.css';
+import GlobalProvider from "../../context/context";
 
 class Home extends Component{
-    state = {
-      showComponent: true
-    };
-
     render() {
         return (
             <Router>
@@ -33,4 +30,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default GlobalProvider(Home);
